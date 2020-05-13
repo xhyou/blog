@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User的模板引擎测试</title>
+</head>
+<body>
+   <!--使用${}获取文本的值}-->
+   <p th:text="${user.gender}+'['+${user.name}+']'"></p>
+   <p>[[${user.name}]]</p>
+   <!--*{}-->
+   <h2 th:object="${user}">
+    <p th:text="*{name}"></p>
+    <p th:text="*{gender}"></p>
+   </h2>
+   <span th:text="|欢迎您:${user.name}|"></span>
+</body>
+</html>
