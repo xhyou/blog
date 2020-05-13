@@ -2,6 +2,7 @@ package com.blog.blogProduct.web.admin;
 
 import com.blog.blogProduct.po.User;
 import com.blog.blogProduct.service.UserService;
+import com.blog.blogProduct.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +31,7 @@ public class LoginController {
                         @RequestParam String password,
                         HttpSession session,
                         RedirectAttributes attributes){
-        User user = userService.checkUser(username, password);
+        User user = userService.checkUser(username, MD5Utils.code(password));
         if(user!=null){
             user.setPassword(null);
             session.setAttribute("user",user);
