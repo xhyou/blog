@@ -18,7 +18,7 @@ public class Type {
     @Id
     private Long id;
     //分类的名字
-    private String type;
+    private String name;
 
     @OneToMany(mappedBy = "type")
     private List<Blog> blogs = new ArrayList<>();
