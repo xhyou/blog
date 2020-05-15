@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,8 @@ public class Tag {
     @GeneratedValue
     private Long id;
     //标签的类型
-    private String type;
+    @NotBlank(message="标签的名称不能为空")
+    private String name;
 
     @ManyToMany(mappedBy = "tags")
     private List<Blog> blogs = new ArrayList<>();
