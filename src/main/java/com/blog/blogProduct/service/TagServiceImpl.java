@@ -36,9 +36,7 @@ public class TagServiceImpl implements TagService {
         if(t==null){
             throw new NotFoundException("不存在该类型");
         }
-        //TODO Why Do
-        BeanUtils.copyProperties(tag,t);
-        return tagRepository.save(t);
+        return tagRepository.save(tag);
     }
 
     @Override
