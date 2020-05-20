@@ -1,7 +1,6 @@
 package com.blog.blogProduct.web.admin;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -10,7 +9,6 @@ public class BlogController {
 
     @RequestMapping("/blogs")
     public String blogs(){
-
         return "/admin/blogs";
     }
 }
