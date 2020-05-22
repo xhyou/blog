@@ -23,6 +23,8 @@ public class Blog {
     //标题
     private String title;
     //内容
+    @Basic(fetch = FetchType.LAZY)
+    @Lob
     private String content;
     //首图
     private String firstPicture;
@@ -57,5 +59,32 @@ public class Blog {
 
     @OneToMany(mappedBy = "blog")
     private List<Comment> comments = new ArrayList<>();
+
+    @Transient//不被数据库当做列
+    private String tagIds;
+
+    private String description;
+
+    public void init() {
+        this.tagIds = tagsToIds(this.getTags());
+    }
+
+    private String tagsToIds(List<Tag> tags) {
+        if (!tags.isEmpty()) {
+            StringBuffer ids = new StringBuffer();
+            boolean flag = false;
+            for (Tag tag : tags) {
+                if (flag) {
+                    ids.append(",");
+                } else {
+                    flag = true;
+                }
+                ids.append(tag.getId());
+            }
+            return ids.toString();
+        } else {
+            return tagIds;
+        }
+    }
 
 }

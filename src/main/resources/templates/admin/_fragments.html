@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title th:replace="${title}">博客详情</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-  <link rel="stylesheet" href="../../css/typo.css" th:href="@{/css/typo.css}">
-  <link rel="stylesheet" href="../../css/animate.css" th:href="@{/css/animate.css}">
-  <link rel="stylesheet" href="../../lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
-  <link rel="stylesheet" href="../../lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+  <link rel="stylesheet" href="../../lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
   <link rel="stylesheet" href="../../css/me.css" th:href="@{/css/me.css}">
 </head>
 <body>
@@ -66,8 +63,8 @@
       <div class="three wide column">
         <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
         <div class="ui inverted link list">
-          <a href="#" class="item m-text-thin">Email：lirenmi@163.com</a>
-          <a href="#" class="item m-text-thin">QQ：865729312</a>
+          <a href="#" class="item m-text-thin">Email：604624146@qq.com</a>
+          <a href="#" class="item m-text-thin">QQ：604624146</a>
         </div>
       </div>
       <div class="seven wide column">
@@ -84,11 +81,7 @@
 <th:block th:fragment="script">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
-  <script src="../lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
-  <script src="../lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
-  <script src="../lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
-  <script src="../lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+  <script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
 </th:block>
 
 </body>
