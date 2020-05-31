@@ -14,7 +14,9 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -51,13 +53,18 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    @Transactional
     public Blog saveBlog(Blog blog) {
+        blog.setCreateTime(new Date());
+        blog.setUpdateTime(new Date());
         return blogRepository.save(blog);
     }
 
     @Override
+    @Transactional
     public Blog updateBlog(Long id, Blog blog) {
         Blog b = getBlog(id);
+        blog.setUpdateTime(new Date());
         if(b==null){
             throw new NotFoundException("更新的类不存在");
         }
@@ -65,6 +72,7 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    @Transactional
     public void deleteBlog(Long id) {
         blogRepository.deleteById(id);
     }
