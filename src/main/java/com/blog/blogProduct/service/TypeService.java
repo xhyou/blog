@@ -21,4 +21,6 @@ public interface TypeService {
     void deleteType(Long id);
 
     Type findByName(String name);
+
+    List<Type> listTypeTop(int i);
 }

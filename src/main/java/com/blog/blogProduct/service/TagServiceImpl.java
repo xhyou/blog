@@ -5,7 +5,9 @@ import com.blog.blogProduct.dao.TagRepository;
 import com.blog.blogProduct.po.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -70,5 +72,12 @@ public class TagServiceImpl implements TagService {
     @Override
     public Tag findByName(String name) {
         return tagRepository.findByName(name);
+    }
+
+    @Override
+    public List<Tag> listTagTop(int size) {
+        Sort.Order sort=new Sort.Order(Sort.Direction.DESC, "blogs.size");
+        Pageable pageable = PageRequest.of(0,size,Sort.by(sort));
+        return tagRepository.findTop(pageable);
     }
 }
