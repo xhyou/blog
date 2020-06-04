@@ -24,4 +24,6 @@ public interface BlogService {
     Page<Blog> listBlog(Pageable pageable);
 
     List<Blog> listRecommendBlogTop(int i);
+
+    Blog getAndConvert(Long id);
 }

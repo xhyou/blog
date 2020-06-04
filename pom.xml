@@ -70,6 +70,23 @@
             <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
+        <!--markdown转换器-->
+        <dependency>
+			<groupId>com.atlassian.commonmark</groupId>
+			<artifactId>commonmark</artifactId>
+			<version>0.10.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.atlassian.commonmark</groupId>
+			<artifactId>commonmark-ext-heading-anchor</artifactId>
+			<version>0.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atlassian.commonmark</groupId>
+			<artifactId>commonmark-ext-gfm-tables</artifactId>
+			<version>0.10.0</version>
+		</dependency>
     </dependencies>
 
     <build>

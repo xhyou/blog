@@ -4,6 +4,8 @@ import com.blog.blogProduct.NotFoundException;
 import com.blog.blogProduct.dao.BlogRepository;
 import com.blog.blogProduct.po.Blog;
 import com.blog.blogProduct.po.BlogQuery;
+import com.blog.blogProduct.utils.MarkdownUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -95,5 +97,18 @@ public class BlogServiceImpl implements BlogService {
         Sort.Order sort=new Sort.Order(Sort.Direction.DESC, "updateTime");
         Pageable pageable = PageRequest.of(0,size,Sort.by(sort));
         return blogRepository.findTop(pageable);
+    }
+
+    @Override
+    public Blog getAndConvert(Long id) {
+        Blog blog = blogRepository.getOne(id);
+        if (blog == null) {
+            throw new NotFoundException("该博客不存在");
+        }
+        Blog b = new Blog();
+        BeanUtils.copyProperties(blog,b);
+        String content = b.getContent();
+        b.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+        return b;
     }
 }
