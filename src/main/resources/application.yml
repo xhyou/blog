@@ -3,6 +3,5 @@ spring:
     mode: HTML
   profiles:
     active: dev
-
-
-
+# 记录图片地址
+comment.avatar: /images/avatar.png

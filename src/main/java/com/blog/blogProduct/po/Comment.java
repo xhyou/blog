@@ -19,14 +19,15 @@ public class Comment {
     @GeneratedValue
     private Long id;
     //昵称
-    private String nickName;
+    private String nickname;
     private String email;
     private String content;
     //头像
     private String avatar;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
-
+    //当前是否是管理员
+    private boolean adminComment;
     @ManyToOne
     private Blog blog;
 
@@ -37,4 +38,5 @@ public class Comment {
     //一个子类对象对应一个Comment
     @ManyToOne
     private Comment parentComment;
+
 }

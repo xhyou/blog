@@ -37,6 +37,11 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/index")
+    public String indexPage(){
+        return "redirect:/";
+    }
+
     @PostMapping("/search")
     public String search(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                          @RequestParam String query, Model model){
