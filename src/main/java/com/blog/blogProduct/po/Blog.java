@@ -3,6 +3,7 @@ package com.blog.blogProduct.po;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
@@ -54,10 +55,10 @@ public class Blog {
     @ManyToOne
     private User user;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     private Type type;
 
-    @OneToMany(mappedBy = "blog")
+    @OneToMany(mappedBy = "blog",cascade = CascadeType.REMOVE)
     private List<Comment> comments = new ArrayList<>();
 
     @Transient//不被数据库当做列

@@ -112,4 +112,20 @@ public class BlogController {
         attributes.addFlashAttribute("message","删除成功");
         return REDIRECT_LIST;
     }
+
+    @GetMapping("/blog/{id}")
+    public String blog(@PathVariable Long id,Model model){
+        model.addAttribute("blog",blogService.getBlog(id));
+        return REDIRECT_LIST;
+    }
+
+    /**
+     * 最新博客
+     */
+    @GetMapping("/footer/newblog")
+    public String newblogs(Model model) {
+        model.addAttribute("newblogs", blogService.listRecommendBlogTop(3));
+        return "/admin/_fragments :: newblogList";
+    }
+
 }

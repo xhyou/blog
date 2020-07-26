@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
-//拦截所有标注有controllerd的页面
+//拦截所有标注有controller的页面
 @ControllerAdvice
 public class HandlerExceptionController {
     //获取日志

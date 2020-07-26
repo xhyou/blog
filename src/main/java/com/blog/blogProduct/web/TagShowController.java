@@ -31,7 +31,6 @@ public class TagShowController {
                         @PathVariable Long id, Model model){
         List<Tag> tags = tagService.listTagTop(10000);
         if(id==-1){
-            //说明是从首页取出的
             id = tags.get(0).getId();
         }
         model.addAttribute("tags",tags);
